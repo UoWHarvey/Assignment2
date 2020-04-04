@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+       	<meta name="format-detection" content="telephone=no" />
+       	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height" />
+       	<title>WeatherGenix</title>
+        <link href="jquery-mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
+		<link href="css/index.css" rel="stylesheet" type="text/css">
+		<script src="jquery-mobile/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script src="jquery-mobile/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+		<script src="js/Ractive.js"></script>
+		<script src="js/index.js"></script>
+		
+		</script>
+		
+	</head>
+    
+    <body>	
+    	<div data-role="page" id="home"> <!--- Defining the page id as pageone --->
+      		
+        	<div class="header"> 
+        		<h1>Home</h1>
+				
+      		</div>
+			
+			<div class="body" data-position="fixed">
+				<p> Hello and welcome to WeatherGenix!<br> This is a weather application aiming to provide you, the user, with the relevant weather information.<p>
+			</div>
+			
+			<div data-role="panel" id="myPanel"> <!--- Creating the panel menu and Defining the id of this object as mypanel  --->
+				<h2>Menu</h2> <!--- The title of the panel --->
+				<a href="#weather" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-left">Weather Page</a> <!--- A button to go to page two with an arrow as the icon --->
+				<a href="#settings" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-gear">Settings</a> <!--- A button to go to page three with an arrow as the icon --->				
+			</div>
+			<div data-role="main" class="ui-content">
+				<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"> Open Menu</a> <!--- this button opens the panel with the id of mypanel --->
+			</div>
+				
+			
+			<div class="footer" data-position="fixed">
+				<button onclick="self.close()" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-power"  >Close</button>
+				<a href ="#settings" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-left">Previous</a>
+				<a href ="#weather" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-right">Next</a>
+			</div>
+			
+    	    	
+		</div>
+		<div data-role="page" id="weather">
+      		
+        	<div data-role="header">
+        		<h1>Weather</h1>
+				<p>This page is where you can see the weather for your area</p>
+      		</div>
+			
+			<div data-role="panel" id="myPanel">
+				<h2>Menu</h2>
+				<a href="#home" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-left">Home</a>
+				<a href="#settings" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-gear">Settings</a>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"> Open Panel</a>
+			</div>
+			
+			<div data-role="content">
+			
+				<ul data-role="listview" id='container'></ul>
+			
+			</div>
+			<!--Ractive template - how to display data-->
+			<script id='myTemplate' type='text/ractive'>
+	
+				{{#weather}}
+				<li>{{weather_state_name}}</li>
+				{{/weather}}
+
+			</script>
+			
+			<div data-role="footer" data-position="fixed">
+				<button onclick="self.close()" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-power"  >Close</button>
+				<a href ="#home" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-left">Previous</a>
+				<a href ="#settings" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-right">Next</a>
+				
+			</div>
+			
+    	    	
+		</div>
+		<div data-role="page" id="settings">
+      		
+        	<div data-role="header">
+        		<h1>Settings</h1>
+      		</div>
+			
+			<div data-role="panel" id="myPanel">
+				<h2>Menu</h2>
+				<a href="#home" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-left">Home</a>
+				<a href="#weather" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-arrow-u ui-btn-icon-left">Weather</a>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow"> Open Panel</a>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+				<button onclick="self.close()" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-power"  >Close</button>
+				<a href ="#weather" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-left">Previous</a>
+				<a href ="#home" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-right">Next</a>
+
+			</div>
+			
+    	    	
+		</div>
+	</body>
+</html>
